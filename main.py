@@ -12,4 +12,14 @@ y = my_dataset["Outcome"]
 scaler = StandardScaler()
 scaler.fit(x)
 standardized_data = scaler.transform(x)
-print(standardized_data)
+#Labling data set
+x = standardized_data 
+y = my_dataset["Outcome"]
+#slpiliting test and Train data
+x_test, x_train, y_test, y_train = train_test_split(x, y, test_size=0.2, stratify=y, random_state=2)
+#data training
+classifier  = svm.SVC(kernel="linear")
+classifier.fit(x_train, y_train)
+#evaluation 
+x_train_prediction = classifier.predict(x_train)
+train_accuracy_prediction = accuracy_score(x_train_prediction, y_train)
