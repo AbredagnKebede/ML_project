@@ -23,3 +23,5 @@ classifier.fit(x_train, y_train)
 #evaluation 
 x_train_prediction = classifier.predict(x_train)
 train_accuracy_prediction = accuracy_score(x_train_prediction, y_train)
+x_test_predication = classifier.predict(x_test)
+test_accuracy_prediction = accuracy_score(x_test_predication)
